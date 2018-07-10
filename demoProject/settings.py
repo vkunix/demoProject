@@ -129,3 +129,17 @@ import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vkuniyal9591@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'vivek uniyal vkuniyal9591@gmail.com' 
+
+ADMINS = (
+    ('vivek', 'vivek@webtracess.com'),
+)
+
+MANAGERS = ADMINS
