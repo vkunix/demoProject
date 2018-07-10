@@ -1,19 +1,17 @@
 from django.shortcuts import render
 from .models import DemoClass
-form .forms import DemoClassForm
+# from .forms import DemoClassForm
 # Create your views here.
-def home(request):
+def homeView(request):
     if request.method == 'POST':
-        form = DemoClassForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            form.save()
-            return render(request, "demoProject/display.html", {"form": form})
+        form = DemoClass()
+        form.name = request.POST['en_name']
+        form.save()
+        return render(request, "demoProject/home.html", {"message": "data saved"})
     else:
-        form = DemoClassForm()
-    return render(request, "demoProject/home.html", {"form": form})
+        return render(request, "demoProject/home.html", {})
 
 
 def demoView(request):
     obj = DemoClass.objects.all()
-    return render(request, "demoPorject/display.html", {"obj": obj})
+    return render(request, "demoProject/display.html", {"obj": obj})

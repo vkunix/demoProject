@@ -1,10 +1,13 @@
 {% load static %}
 <html>
 <body>
-    <form action="{% url 'demo_view' %}" method="POST" class="text-center">
+    {{message}}
+    <form action="{% url 'home' %}" method="POST" class="text-center">
+        {% csrf_token %}
     <p>Enter your name:</p> <br>
-    {{form}}
+    <input type="text" name="en_name" />
     <input type="submit" value="Click me"/>
     </form>
+    <a href="{% url 'demo_view' %}"> view data </a>
 </body>
 </html>

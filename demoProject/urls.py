@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from dummy.models import DemoClass
+from dummy import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', veiws.homeView, name="home"),
+    url(r'^$', views.homeView, name="home"),
     url(r'^demoView/$', views.demoView, name="demo_view"),
 ]
